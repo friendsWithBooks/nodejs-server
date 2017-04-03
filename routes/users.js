@@ -28,7 +28,7 @@ userRouter
   .post(function (req, res, next) {
     console.log(req.body)
     Users.create(req.body, function (err, user) {
-      if(err) console.log("POST Error")
+      if(err) console.log(err.message)
       res.json(user)
     })
   })

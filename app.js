@@ -17,11 +17,16 @@ var borrowBook = require('./routes/borrowBook')
 var returnBook = require('./routes/returnBook')
 var location = require('./routes/location')
 
-var app = express()
+var app = express() 
 app.use(cors())
 // mongoose setup
-var url = 'mongodb://localhost:27018/data'
-mongoose.connect(url)
+var url = 'mongodb://admin:adminlogin@ds135800.mlab.com:35800/fwbdb'
+
+var options = { 
+                server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } }, 
+                replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } } 
+              }; 
+mongoose.connect(url,options)
 var db = mongoose.connection
 db.on('error', console.error.bind(console, 'connection error:'))
 

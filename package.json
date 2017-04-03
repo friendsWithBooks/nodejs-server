@@ -1,12 +1,12 @@
 {
-  "name": "assignment-2",
+  "name": "friendswithbooks",
   "version": "1.0.0",
-  "description": "Coursera / Server-side Development with NodeJS / Assignement 1",
+  "description": "BookApplication",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
   },
-  "author": "Vinícius Tabille Manjabosco",
+  "author": "BhavaTeja",
   "license": "MIT",
   "dependencies": {
     "assert": "^1.3.0",
