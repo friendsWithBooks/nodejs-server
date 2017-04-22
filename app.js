@@ -16,17 +16,21 @@ var booksLent = require('./routes/booksLent')
 var borrowBook = require('./routes/borrowBook')
 var returnBook = require('./routes/returnBook')
 var location = require('./routes/location')
+var friends = require('./routes/friends')
 
 var app = express() 
 app.use(cors())
 // mongoose setup
-var url = 'mongodb://admin:adminlogin@ds135800.mlab.com:35800/fwbdb'
+var url = 'mongodb://localhost:27018/fwbdb'
 
+/*
 var options = { 
                 server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } }, 
                 replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } } 
               }; 
-mongoose.connect(url,options)
+
+*/
+mongoose.connect(url)
 var db = mongoose.connection
 db.on('error', console.error.bind(console, 'connection error:'))
 
@@ -51,6 +55,7 @@ app.use('/booksLent', booksLent)
 app.use('/borrowBook', borrowBook)
 app.use('/returnBook', returnBook)
 app.use('/location', location)
+app.use('/friends',friends)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
